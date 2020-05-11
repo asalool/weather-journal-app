@@ -25,11 +25,6 @@ const getTemp = async (apiURL, zip, key)=> {
     const fullURL = apiURL + zip + key;
     const response = await fetch(fullURL, {
         method: 'GET',
-        mode: 'cors',
-        credentials: 'same-origin',
-        headers: {
-            'content-type': 'application/json',
-        }
     });
     try {
         const newData = response.json();
@@ -38,7 +33,4 @@ const getTemp = async (apiURL, zip, key)=> {
         console.log('error', error);
     }
 } 
-
-// I've added few lines to compare
-
 
