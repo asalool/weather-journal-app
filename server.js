@@ -30,10 +30,10 @@ app.get('/', function(req, res){
 })
 
 // POST Route
-app.post('/', function(req, res){
+app.post('/addData', function(req, res){
     let data = req.body;
-    projectData['temperature'] = data.temperature;
-    projectData['date'] = data.date;
-    projectData['user-response'] = data.user-response;
+    projectData['temperature'] = data[0].temperature;
+    projectData['date'] = data[0].date;
+    projectData['user-response'] = data[0].user-response;
     res.send('POST Request to the Server App')
 })
