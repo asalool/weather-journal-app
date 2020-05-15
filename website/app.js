@@ -31,14 +31,7 @@ function performAction(e){
 // get temp from the api
 const getTemp = async (apiURL, zip, key)=> {
     const fullURL = apiURL + zip + key;
-    const response = await fetch(fullURL, {
-        method: 'GET',
-        mode: 'cors',
-        headers: {
-            'content-type': 'application/json',
-            'Access-Control-Allow-Origin': '*',
-        }
-    });
+    const response = await fetch(fullURL);
     try {
         const newData = await response.json();
         temp = newData.main.temp;
