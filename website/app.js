@@ -22,7 +22,7 @@ function performAction(e){
     getTemp(baseURL, zipValue, apiKey)
 
     .then(function() {
-        let data = `temperature:${temp}, date:${newDate}, user-response:${feelings}`;
+        let data = `temperature: ${temp}, date: '${newDate}', user-response: '${feelings}'`;
         console.log(data);
         postData('/addData', {data});
     });
@@ -42,7 +42,7 @@ const getTemp = async (apiURL, zip, key)=> {
 }
 
 // post data to the server
-const postData = async (url='', data={})=> {
+const postData = async ( url = '', data = {})=>{
     const response = await fetch(url, {
         method: 'POST',
         credentials: 'same-origin',

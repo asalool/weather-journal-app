@@ -21,7 +21,7 @@ app.use(cors());
 app.use(express.static('website'));
 
 // Setup Server
-const port = 3500;
+const port = 3501;
 const server = app.listen(port, ()=>{console.log(`listening on port number ${port}`)});
 
 // GET Route
@@ -32,8 +32,8 @@ app.get('/', function(req, res){
 // POST Route
 app.post('/addData', function(req, res){
     let data = req.body;
-    projectData['temperature'] = data[0].temperature;
-    projectData['date'] = data[0].date;
-    projectData['user-response'] = data[0].user-response;
+    // projectData['temperature'] = data[0].temperature;
+    // projectData['date'] = data[0].date;
+    // projectData['user-response'] = data[0].user-response;
     res.send('POST Request to the Server App')
 })
