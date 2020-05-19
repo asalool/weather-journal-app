@@ -21,7 +21,7 @@ app.use(cors());
 app.use(express.static('website'));
 
 // Setup Server
-const port = 3501;
+const port = 3502;
 const server = app.listen(port, ()=>{console.log(`listening on port number ${port}`)});
 
 // GET Route

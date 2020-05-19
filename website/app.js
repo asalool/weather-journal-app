@@ -61,7 +61,7 @@ const postData = async ( url = '', data = {})=>{
 }
 
 
-// get data from the server and update element
+// 2 get data from the server and update element
 
 // chain another async function to post the data to the server
 
