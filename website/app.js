@@ -22,9 +22,9 @@ function performAction(e){
     getTemp(baseURL, zipValue, apiKey)
 
     .then(function() {
-        let data = `temperature: ${temp}, date: '${newDate}', user-response: '${feelings}'`;
+        let data = `{temperature: ${temp}, date: ${newDate}, user-response: ${feelings}}`;
         console.log(data);
-        postData('/addData', {data});
+        postData('/addData', data);
     });
 };
 
