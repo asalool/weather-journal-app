@@ -21,10 +21,16 @@ function performAction(e){
     // make call to the api
     getTemp(baseURL, zipValue, apiKey)
 
+    // post data to the server
     .then(function() {
         let data = {temperature:temp, date:newDate, response:feelings};
         console.log(data);
         postData('/addData', data);
+    })
+
+    // get data from the server and update the UI
+    .then(function() {
+        updateUI();
     });
 };
 
@@ -53,16 +59,22 @@ const postData = async ( url = '', data = {})=>{
     });
     try {
         const newData = await response.json();
-        console.log(newDate);
         console.log('data posted successfully to the server');
     } catch(error) {
         console.log('post error', error);
     }     
 }
 
-
-// get data from the server and update element
-
-// chain another async function to post the data to the server
-
-// chain another async function to update an element after getting the values from the server
+// Update the UI
+const updateUI = async () => {
+    const response = await fetch('/getData');
+    try{
+        const allData = await response.json()
+        console.log("received data", allData);
+        document.getElementById('date').innerHTML = allData.date;
+        document.getElementById('temp').innerHTML = allData.temperature;
+        document.getElementById('content').innerHTML = allData.response;
+    }catch(error){
+        console.log("error", error)
+    }
+}

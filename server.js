@@ -25,7 +25,7 @@ const port = 3500;
 const server = app.listen(port, ()=>{console.log(`listening on port number ${port}`)});
 
 // GET Route
-app.get('/', function(req, res){
+app.get('/getData', function(req, res){
     res.send(projectData)
 })
 
@@ -35,5 +35,5 @@ app.post('/addData', function(req, res){
     projectData['temperature'] = data.temperature;
     projectData['date'] = data.date;
     projectData['response'] = data.response;
-    res.send('POST Request to the Server App')
+    console.log(projectData);
 })
